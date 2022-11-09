@@ -1,0 +1,20 @@
+﻿@model ProyectoVet.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div style="padding: 6px; border: solid 1px; border-color: #dfdfdf; border-radius: 7px;margin:0px 10%;">
+    <h2>@Html.DisplayFor(model => model.Titulo)</h2>
+    <h4>@Html.DisplayFor(model => model.FechaPublicacion)</h4>
+    <hr />
+
+    @Html.DisplayFor(model => model.Contenido)
+    <br />
+    <br />
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdBlog }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Volver", "Index", new { }, new { @class = "btn btn-primary" })
+    <br />
+</div>
+

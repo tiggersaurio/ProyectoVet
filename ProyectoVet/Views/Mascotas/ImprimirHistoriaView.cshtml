@@ -1,0 +1,135 @@
+﻿@model ProyectoVet.Models.HistoriaC
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia clinica</title>
+    <style>
+        td {
+            padding: 5px;
+        }
+
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <center>
+        <table style="width: 95%;">
+            <tr>
+                <td rowspan="4">
+                    <center>
+                        <img src="~/Content/img/Lupan (2).png" alt="Logo" style="width: 130px; height: 130px;">
+                    </center>
+                </td>
+                <td colspan="2">
+                    <b>Lupan Veterinarios</b>
+                </td>
+                <td>
+                    <b>HISTORIA CLÍNICA</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Paciente: @Html.DisplayFor(model => model.mascota.Nombres)
+                </td>
+                <td>
+                    Dueño: @Html.DisplayFor(model => model.Dueno)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Edad: @Html.DisplayFor(model => model.Edad)
+                </td>
+                <td>
+                    Sexo: @Html.DisplayFor(model => model.Sexo)
+                </td>
+                <td>
+                    Email: @Html.DisplayFor(model => model.Correo)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Especie: @Html.DisplayFor(model => model.Especie)
+                </td>
+                <td>
+                    Telefono: @Html.DisplayFor(model => model.Telefono)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ciudad: @Html.DisplayFor(model => model.Ciudad)
+                </td>
+                <td colspan="3">
+                    Dirección: @Html.DisplayFor(model => model.Dirección)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    Medico: @Html.DisplayFor(model => model.medico.Nombres)
+                </td>
+                <td>
+                    Especialidad: @Html.DisplayFor(model => model.Especialidad)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <b>Motivo de consulta</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    @Html.DisplayFor(model => model.MotivoConsulta)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <b>Diagnostico</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    @Html.DisplayFor(model => model.Diagnostico)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <b>Observaciones</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    @Html.DisplayFor(model => model.Observaciones)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <b>Recomendaciones</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    @Html.DisplayFor(model => model.Recomendaciones)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    Firma: @Html.DisplayFor(model => model.Firma)
+                </td>
+                <td>
+                    Fecha: @Html.DisplayFor(model => model.Fecha)
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

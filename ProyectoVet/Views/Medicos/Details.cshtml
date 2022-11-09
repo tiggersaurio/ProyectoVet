@@ -1,0 +1,68 @@
+﻿@model ProyectoVet.Models.Medico
+
+@{
+    ViewBag.Title = "Detalles medico";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Nombres) @Html.DisplayFor(model => model.Apellidos)</h4>
+
+    <table class="table table-striped">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Documento)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Documento)
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Especialidad)
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Telefono)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Password)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Password)
+            </td>
+        </tr>
+
+        
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdMedico }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Volver", "Index", new { }, new { @class = "btn btn-primary" })
+</p>

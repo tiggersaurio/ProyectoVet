@@ -1,0 +1,58 @@
+﻿.cont {
+    margin-top: 50px;
+}
+
+body {
+    background: #e0cdb7;
+    font-family: Verdana;
+    padding-top: 5%;
+}
+
+.sin{
+    margin:0px;
+    padding:0px;
+}
+
+
+.cont .cont-img img{
+    width:100%;
+}
+
+.cont .cont-form{
+    background:#fff;
+}
+
+.cont .cont-form p {
+    font-size: 30px;
+}
+
+.cont .cont-form .boton {
+    background: #e0cdb7;
+    padding: 5px 50px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 20px;
+}
+.mb-10{
+    margin-bottom:10%;
+}
+
+.cont .cont-form .raya{
+    background:#c6c6c6;
+    height:1px;
+    width:50%;
+
+}
+.cont .cont-form img {
+    width:250px;
+}
+.input {
+    height: 40px;
+    font-size: 18px;
+}
+.ancho{
+    width:100%;
+    margin:0px 5%;
+}

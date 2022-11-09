@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProyectoVet.Models.Mascota>
+
+@{
+    ViewBag.Title = "Lista mascotas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hearts" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.931.481c1.627-1.671 5.692 1.254 0 5.015-5.692-3.76-1.626-6.686 0-5.015Zm6.84 1.794c1.084-1.114 3.795.836 0 3.343-3.795-2.507-1.084-4.457 0-3.343ZM7.84 7.642c2.71-2.786 9.486 2.09 0 8.358-9.487-6.268-2.71-11.144 0-8.358Z" />
+    </svg>
+    Mascotas
+</h2>
+
+<p>
+    @Html.ActionLink("+", "Create", new { }, new { @class = "btn agregar" })
+</p>
+<div class="row sin">
+    
+    @foreach (var item in Model)
+    {
+    <div class="col-lg-2 sin">
+        <div class="cont-mascota d-flex justify-content-center align-items-center flex-column">
+            @if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Anfibio")
+            {
+                <img src="~/Content/img/tipo/Anfibio.png" />
+            }
+            else if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Ave")
+            {
+                <img src="~/Content/img/tipo/Ave.png" />
+            }
+            else if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Gato")
+            {
+                <img src="~/Content/img/tipo/Gato.png" />
+            }
+            else if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Perro")
+            {
+                <img src="~/Content/img/tipo/Perro.png" />
+            }
+            else if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Pez")
+            {
+                <img src="~/Content/img/tipo/Pez.png" />
+            }
+            else if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Reptil")
+            {
+                <img src="~/Content/img/tipo/Reptil.png" />
+            }
+            else if (Convert.ToString(Html.DisplayFor(modelItem => item.Especie)) == "Roedor")
+            {
+                <img src="~/Content/img/tipo/Roedor.png" />
+            }
+
+            <h4>@Html.DisplayFor(modelItem => item.Nombres)</h4>
+            <div class="usuario">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-heart" viewBox="0 0 16 16">
+                    <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z" />
+                </svg>
+                <p>@Html.DisplayFor(modelItem => item.cliente.Nombres) @Html.DisplayFor(modelItem => item.cliente.Apellidos)</p>
+            </div>
+            <p>@Html.DisplayFor(modelItem => item.cliente.Documento)</p> 
+            @Html.ActionLink("Detalles", "Details", new { id = item.IdMascota }, new { @class = "btn detalles" })
+        </div>
+    </div>
+    }
+
+</div>

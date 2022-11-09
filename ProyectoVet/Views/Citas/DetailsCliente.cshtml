@@ -1,0 +1,72 @@
+﻿@model ProyectoVet.Models.Cita
+
+@{
+    ViewBag.Title = "Detalles cita";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Cita - @Html.DisplayFor(model => model.mascota.Nombres) (@Html.DisplayFor(model => model.Fecha))</h4>
+    <table class="table table-striped">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.mascota.Nombres)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.mascota.Nombres)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.medico.Nombres)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.medico.Nombres)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Fecha)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Hora)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Hora)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Categoria)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Consultorio)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Consultorio)
+            </td>
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Volver", "IndexCliente", new { }, new { @class = "btn btn-primary" })
+</p>

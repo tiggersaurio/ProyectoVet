@@ -1,0 +1,61 @@
+﻿@model ProyectoVet.Models.MascotaDetailsView
+
+@{
+    ViewBag.Title = "Detalles mascota";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<h2> @Html.DisplayFor(model => model.Nombres)</h2>
+
+@Html.ActionLink("Imprimir Carné", "ImprimirCarne", new { id = Model.IdMascota }, new { @class = "btn btn-info" })
+
+<div class="row sin">
+    <div class="col-lg-12 sin">
+        <h3>Detalles</h3>
+        <table class="table table-striped">
+            <tr>
+                <td>Especie</td>
+                <td>@Html.DisplayFor(model => model.Especie)</td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td>@Html.DisplayFor(model => model.Edad)</td>
+            </tr>
+            <tr>
+                <td>Especificaciones</td>
+                <td>@Html.DisplayFor(model => model.Especificaciones)</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-lg-12 sin">
+        <h3>Historial</h3>
+        @if (Model.HistoriaCs.Count == 0)
+        {
+            <center>
+                <h5> No hay historias clinicas</h5>
+            </center>
+        }
+        else
+        {
+            <table class="table table-striped">
+                @for (int i = 0; i < Model.HistoriaCs.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.HistoriaCs[i].Fecha)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Imprimir", "ImprimirHistoria", new { id = Model.HistoriaCs[i].HistoriaId }, new { @class = "btn btn-info" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Volver", "IndexCliente", new { }, new { @class = "btn btn-primary" })
+</p>

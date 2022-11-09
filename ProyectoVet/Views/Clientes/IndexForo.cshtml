@@ -1,0 +1,496 @@
+﻿@model IEnumerable<ProyectoVet.Models.Foro>
+
+@{
+    ViewBag.Title = "Foro";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+<h2>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-heart-fill" viewBox="0 0 16 16">
+        <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+    </svg>
+    Foro
+</h2>
+
+@Html.ActionLink("+", "CreateForo", new { }, new { @class = "btn agregar", data_target = "#MyModal", data_toggle = "modal" })
+
+<div class="dropdownMenu">
+    <div class="dropdownMenu">
+        <div class="title dropdownButton">
+            <p>Perro<p>
+        </div>
+        <div class="dropdownContent">
+            <ul>
+                <li>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item.Seccion == "Perro")
+                        {
+                    <div class="contenedorPrincipalForo">
+
+                        <div class="contendorForoUsuario">
+                            <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                            <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                            <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                        </div>
+                        <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                        <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                        @Html.ActionLink("Ver", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success" })
+                        @{
+                            string[] cliente = User.Identity.Name.Split('|').ToArray();
+                            if (item.Documento == cliente[2])
+                            {
+                                <div style="float:right;">
+                                    @Html.ActionLink("Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info ", data_target = "#MyModal1", data_toggle = "modal" })
+                                    @Html.ActionLink("Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                                </div>
+                                
+                            }
+                        }
+                    </div>
+                        }
+
+                    }
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Gato</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Gato")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[3])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Pez</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Pez")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[3])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Roedor</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Roedor")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[3])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Aves</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Aves")
+                    {
+                        <div class="contenedorPrincipalForo">
+                            <div class="contendorForoUsuario">
+                                <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                                <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                                <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                            </div>
+                            <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                            <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                            @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                            @{
+                                string[] cliente = User.Identity.Name.Split('|').ToArray();
+                                if (item.Documento == cliente[3])
+                                {
+                                    @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                                    @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                                }
+                            }
+                        </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Anfibio</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Anfibio")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[3])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Reptil</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Reptil")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[2])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Juguetes</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Anfibio mestrual")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[3])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Alimentacion</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Alimentacion")
+                    {
+                        <div class="contenedorPrincipalForo">
+                            <div class="contendorForoUsuario">
+                                <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                                <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                                <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                            </div>
+                            <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                            <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                            @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+
+                            @{ 
+                                string[] cliente = User.Identity.Name.Split('|').ToArray();
+                                if(item.Documento == cliente[3]) { 
+                                    @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                                    @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                                }
+                             }
+
+                        </div>
+                                    }
+
+                                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdownMenu">
+    <div class="title dropdownButton">
+        <p>Reuniones</p>
+    </div>
+    <div class="dropdownContent">
+        <ul>
+            <li>
+                @foreach (var item in Model)
+                {
+                    if (item.Seccion == "Reuniones")
+                    {
+                <div class="contenedorPrincipalForo">
+                    <div class="contendorForoUsuario">
+                        <p class="parrafoForo1"><b>@Html.DisplayFor(modelItem => item.Usuario)</b></p>
+                        <p class="parrafoForo1"><small>Fecha: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                        <p class="parrafoForo1"><small>Hora: @Html.DisplayFor(modelItem => item.Hora)</small></p>
+                    </div>
+                    <h3>@Html.DisplayFor(modelItem => item.NombreForo)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                    @Html.ActionLink(" VER", "DetailsForo", new { id = item.ForoId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                    @{
+                        string[] cliente = User.Identity.Name.Split('|').ToArray();
+                        if (item.Documento == cliente[3])
+                        {
+                            @Html.ActionLink(" Editar", "EditForo", new { id = item.ForoId }, new { @class = " btn btn-info glyphicon glyphicon-pencil", data_target = "#MyModal1", data_toggle = "modal" })
+                            @Html.ActionLink(" Eliminar", "DeleteForo", new { id = item.ForoId }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de eliminar el registro?');" })
+                        }
+                    }
+                </div>
+                    }
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<!--SCRIPTSS-->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //Botón de acción del acordeón
+        $('.dropdownButton').click(function () {
+
+            //Elimina la clase on de todos los botones
+            $('.dropdownButton').removeClass('on');
+
+            //Plegamos todo el contenido que esta abierto
+            $('.dropdownContent').slideUp('slow');
+
+            //Si el siguiente slide no esta abierto lo abrimos
+            if ($(this).next().is(':hidden') == true) {
+
+                //Añade la clase on en el botón
+                $(this).addClass('on');
+
+                //Abre el slide
+                $(this).next().slideDown('slow');
+            }
+
+        });
+
+        // Cerramos todo el contenido al cargar la página
+        $('.dropdownContent').hide();
+
+    });
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="MyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body contenedorModal">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="boton1">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="MyModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body contenedorModal">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="boton1">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="MyModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body contenedorModal">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="boton1">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

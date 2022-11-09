@@ -1,0 +1,68 @@
+﻿@model ProyectoVet.Models.Foro
+
+@{
+    ViewBag.Title = "CreateForo";
+    Layout = null;
+}
+
+<div class="contenedorModal">
+    
+    @Html.ActionLink("X", "IndexForo", new { }, new { @class = "btn btn-light contenedorCerrar" })
+    <center>
+    <h2>Nuevo Foro</h2>
+    
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <hr />
+        <table class="table-condensed">
+            <tr>
+                <td>
+                    <p><b>Elige una opcion</b></p>
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.Seccion, new MultiSelectList(new[] { "Perro", "Gato", "Pez", "Roedor", "Aves", "Anfibio", "Reptil", "Juguetes", "Alimentacion","Reuniones" }), new { @class = "form-control formForo" })
+                    @Html.ValidationMessageFor(model => model.Seccion, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Nombre</b></p>
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.NombreForo, new { htmlAttributes = new { @class = "form-control formForo" } })
+                    @Html.ValidationMessageFor(model => model.NombreForo, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Describe tu foro</b></p>
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control formForo", rows = "5" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" style="width:100%;" value="Guardar" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+        <hr />
+        
+
+        <br />
+
+    }
+</center>
+</div>
+    

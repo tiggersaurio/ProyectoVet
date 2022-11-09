@@ -1,0 +1,44 @@
+﻿@model ProyectoVet.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalles Cliente";
+}
+
+<div>
+    <h2>Detalles</h2>
+
+    <h4> @Html.DisplayFor(model => model.Nombres) @Html.DisplayFor(model => model.Apellidos) </h4>
+    <table class="table table-striped">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Documento)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Documento)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Telefono)
+            </td>
+        </tr>
+
+    </table>
+</div>
+<p>
+@Html.ActionLink("Volver", "Index", new { }, new { @class = "btn btn-primary" })
+</p>

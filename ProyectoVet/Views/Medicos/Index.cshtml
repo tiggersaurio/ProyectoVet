@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProyectoVet.Models.Medico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-heart" viewBox="0 0 16 16">
+        <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z" />
+    </svg>
+    Medicos
+</h2>
+<br />
+
+<p class="agregar">
+    @Html.ActionLink("+", "Create", new { }, new { @class = "btn agregar" })
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Especialidad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdMedico }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdMedico }, new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+
+</table>

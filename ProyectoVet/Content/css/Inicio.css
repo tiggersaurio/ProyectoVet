@@ -1,0 +1,250 @@
+﻿.bg-morado {
+    background: #414361;
+}
+.pl{
+    padding:0px 2% !important;
+}
+/*inicio menu*/
+.menu {
+    padding: 10px !important;
+    height: 100vh;
+    display: block;
+    z-index: 9999;
+}
+.menu img{
+    width:50px;
+    border-radius:25px;
+    padding:5px;
+    background-color:#fff;
+}
+.menu h2{
+    color:#fff;
+    font-weight:700;
+    font-size:20px;
+    margin:5px 5px !important;
+}
+.menu .border-b {
+    border-bottom: solid 1px #fff;
+    margin: 10px 0px !important;
+    padding-bottom: 10px !important;
+}
+.menu .item{
+    padding:5px;
+    text-decoration:none;
+    color:#fff;
+    border-radius:2px;
+    cursor:pointer;
+}
+.menu .item:hover{
+    background:#FF84E8;
+}
+    .menu .abajo {
+        bottom: 20px;
+        position: fixed;
+        border-top: solid 1px #fff;
+    }
+/*fin menu*/
+h2 {
+    color: #414361;
+    font-weight: 900;
+}
+.agregar {
+    background-color: #FF84E8;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    font-size: 22px;
+}
+.agregar:hover {
+    font-weight: bold;
+    color:#fff;
+}
+.detalles {
+    background-color: #414361;
+    padding: 5px 50px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sin{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    padding:0px !important;
+    font-family:Verdana;
+}
+
+.bg-1 {
+    background: linear-gradient(to bottom, #7F2CCB, #2A2D43);
+}
+
+.bg-3 {
+    background: linear-gradient(to bottom,#2A2D43,#FFA9E7 );
+}
+
+.bg-2 {
+    background: linear-gradient(to bottom,#FFA9E7,#7F2CCB);
+}
+
+
+.borde {
+    height: 400px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.borde h2{
+    color:#fff;
+    margin:10% 0px;
+    height:70px;
+}
+
+.borde img {
+    margin: 10% 0px;
+    background:#fff;
+    padding:20px;
+    width:100px;
+    border-radius:50px;
+}
+
+.borde .color-blanco{
+    color:#000;
+    background:#fff;
+    border-radius:20px;
+    margin:10px 0px;
+}
+
+.cont-mascota {
+    border: 2px solid #000;
+    background: #fff6fc;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont-mascota img{
+    width:100px;
+    background:#fff;
+    border-radius:50px;
+    padding:25px;
+}
+
+.cont-mascota h4 {
+    color: #7F2CCB;
+    font-weight:700;
+}
+
+.cont-mascota .usuario {
+    display: flex;
+    flex-direction: row;
+}
+.cont-mascota .usuario svg {
+    margin-right:5px;
+}
+
+/*FOROO*/
+
+.dropdownMenu {
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.title {
+    padding: 10px;
+    background-color: #FFA9E7;
+    color: black;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-family: Consolas;
+    font-size: 17px;
+    height: 44px;
+    color:#fff;
+}
+
+    .title:hover {
+        background-color: #ffa9e7c2;
+    }
+
+.dropdownButton:hover {
+    cursor: pointer;
+}
+
+.dropdownButton > p .fa {
+    float: right;
+}
+
+.dropdownContent ul {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.dropdownContent,
+.dropdownButton {
+    border: 1px solid #414361;
+    border-radius:4px;
+}
+
+.dropdownContent {
+    padding: 15px 8px;
+    background-color: #fff;
+    margin-top: -1px;
+}
+
+    .dropdownContent ul li {
+        list-style: none;
+        padding: 5px 0;
+    }
+
+        .dropdownContent ul li a {
+            text-decoration: none;
+        }
+
+            .dropdownContent ul li a:hover {
+                color: white;
+            }
+
+.contenedorPrincipalForo {
+    max-width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 6px;
+    border: solid 1px;
+    border-color: #dfdfdf;
+    border-radius: 7px;
+}
+
+.parrafoForo1 {
+    margin-bottom: -5px;
+}
+
+.contendorForoUsuario {
+    float: right;
+}
+
+.formForo {
+    width: 1000px;
+}
+
+.parrafoForo2 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Consolas;
+}
+/* FIN FOROO*/
+
+.w100 {
+    width: 100%;
+    max-width: 100% !important;
+}
+
